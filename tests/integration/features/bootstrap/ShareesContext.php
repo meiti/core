@@ -64,10 +64,27 @@ class ShareesContext implements Context, SnippetAcceptingContext {
 		return $sharees;
 	}
 
-	protected function resetAppConfigs() {
+	protected function setupAppConfigs() {
+		// Remember the current capabilities
+		$this->getCapabilitiesCheckResponse();
+		$this->savedCapabilitiesXml = $this->getCapabilitiesXml();
+		// Set the required starting values for testing
 		$this->modifyServerConfig('core', 'shareapi_only_share_with_group_members', 'no');
 		$this->modifyServerConfig('core', 'shareapi_allow_share_dialog_user_enumeration', 'yes');
 		$this->modifyServerConfig('core', 'shareapi_share_dialog_user_enumeration_group_members', 'no');
 		$this->modifyServerConfig('core', 'shareapi_allow_group_sharing', 'yes');
+	}
+
+	protected function restoreAppConfigs() {
+		//TODO the following 3 config values do not seem to be exposed in the capabilities
+		$this->modifyServerConfig('core', 'shareapi_only_share_with_group_members', 'no');
+		$this->modifyServerConfig('core', 'shareapi_allow_share_dialog_user_enumeration', 'yes');
+		$this->modifyServerConfig('core', 'shareapi_share_dialog_user_enumeration_group_members', 'no');
+		$this->resetCapability(
+			'files_sharing',
+			'group_sharing',
+			'core',
+			'shareapi_allow_group_sharing'
+		);
 	}
 }

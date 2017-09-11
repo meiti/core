@@ -655,8 +655,21 @@ trait Sharing {
 		return $this->lastShareData->data->token;
 	}
 
-	protected function resetAppConfigs() {
+	protected function setupAppConfigs() {
+		// Remember the current capabilities
+		$this->getCapabilitiesCheckResponse();
+		$this->savedCapabilitiesXml = $this->getCapabilitiesXml();
+		// Set the required starting values for testing
 		$this->modifyServerConfig('core', 'shareapi_allow_public_upload', 'yes');
+	}
+
+	protected function restoreAppConfigs() {
+		$this->resetCapability(
+			'files_sharing',
+			'public@@@upload',
+			'core',
+			'shareapi_allow_public_upload'
+		);
 	}
 }
 

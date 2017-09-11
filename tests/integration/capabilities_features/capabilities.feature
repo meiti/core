@@ -1,10 +1,26 @@
 Feature: capabilities
 	Background:
 		Given using api version "1"
+		And as an "admin"
+
+	Scenario: Check that the sharing API can be enabled
+		When parameter "shareapi_enabled" of app "core" is set to "yes"
+		Then the capabilities setting of "files_sharing" path "api_enabled" is "1"
+
+	Scenario: Check that the sharing API can be disabled
+		When parameter "shareapi_enabled" of app "core" is set to "no"
+		Then the capabilities setting of "files_sharing" path "api_enabled" is ""
+
+	Scenario: Check that group sharing can be enabled
+		When parameter "shareapi_allow_group_sharing" of app "core" is set to "yes"
+		Then the capabilities setting of "files_sharing" path "group_sharing" is "1"
+
+	Scenario: Check that group sharing can be disabled
+		When parameter "shareapi_allow_group_sharing" of app "core" is set to "no"
+		Then the capabilities setting of "files_sharing" path "group_sharing" is ""
 
 	Scenario: getting capabilities with admin user
-		Given as an "admin"
-		When sending "GET" to "/cloud/capabilities"
+		When the capabilities are retrieved
 		Then the HTTP status code should be "200"
 		And fields of capabilities match with
 			| capability | path_to_element | value |
@@ -22,9 +38,8 @@ Feature: capabilities
 			| files | versioning | 1 |
 
 	Scenario: Changing public upload
-		Given as an "admin"
-		And parameter "shareapi_allow_public_upload" of app "core" is set to "no"
-		When sending "GET" to "/cloud/capabilities"
+		Given parameter "shareapi_allow_public_upload" of app "core" is set to "no"
+		When the capabilities are retrieved
 		Then the HTTP status code should be "200"
 		And fields of capabilities match with
 			| capability | path_to_element | value |
@@ -42,9 +57,8 @@ Feature: capabilities
 			| files | versioning | 1 |
 
 	Scenario: Disabling share api
-		Given as an "admin"
-		And parameter "shareapi_enabled" of app "core" is set to "no"
-		When sending "GET" to "/cloud/capabilities"
+		Given parameter "shareapi_enabled" of app "core" is set to "no"
+		When the capabilities are retrieved
 		Then the HTTP status code should be "200"
 		And fields of capabilities match with
 			| capability | path_to_element | value |
@@ -61,9 +75,8 @@ Feature: capabilities
 			| files | versioning | 1 |
 
 	Scenario: Disabling public links
-		Given as an "admin"
-		And parameter "shareapi_allow_links" of app "core" is set to "no"
-		When sending "GET" to "/cloud/capabilities"
+		Given parameter "shareapi_allow_links" of app "core" is set to "no"
+		When the capabilities are retrieved
 		Then the HTTP status code should be "200"
 		And fields of capabilities match with
 			| capability | path_to_element | value |
@@ -81,9 +94,8 @@ Feature: capabilities
 			| files | versioning | 1 |
 
 	Scenario: Changing resharing
-		Given as an "admin"
-		And parameter "shareapi_allow_resharing" of app "core" is set to "no"
-		When sending "GET" to "/cloud/capabilities"
+		Given parameter "shareapi_allow_resharing" of app "core" is set to "no"
+		When the capabilities are retrieved
 		Then the HTTP status code should be "200"
 		And fields of capabilities match with
 			| capability | path_to_element | value |
@@ -101,9 +113,8 @@ Feature: capabilities
 			| files | versioning | 1 |
 
 	Scenario: Changing federation outgoing
-		Given as an "admin"
-		And parameter "outgoing_server2server_share_enabled" of app "files_sharing" is set to "no"
-		When sending "GET" to "/cloud/capabilities"
+		Given parameter "outgoing_server2server_share_enabled" of app "files_sharing" is set to "no"
+		When the capabilities are retrieved
 		Then the HTTP status code should be "200"
 		And fields of capabilities match with
 			| capability | path_to_element | value |
@@ -121,9 +132,8 @@ Feature: capabilities
 			| files | versioning | 1 |
 
 	Scenario: Changing federation incoming
-		Given as an "admin"
-		And parameter "incoming_server2server_share_enabled" of app "files_sharing" is set to "no"
-		When sending "GET" to "/cloud/capabilities"
+		Given parameter "incoming_server2server_share_enabled" of app "files_sharing" is set to "no"
+		When the capabilities are retrieved
 		Then the HTTP status code should be "200"
 		And fields of capabilities match with
 			| capability | path_to_element | value |
@@ -141,9 +151,8 @@ Feature: capabilities
 			| files | versioning | 1 |
 
 	Scenario: Changing password enforce
-		Given as an "admin"
-		And parameter "shareapi_enforce_links_password" of app "core" is set to "yes"
-		When sending "GET" to "/cloud/capabilities"
+		Given parameter "shareapi_enforce_links_password" of app "core" is set to "yes"
+		When the capabilities are retrieved
 		Then the HTTP status code should be "200"
 		And fields of capabilities match with
 			| capability | path_to_element | value |
@@ -162,9 +171,8 @@ Feature: capabilities
 			| files | versioning | 1 |
 
 	Scenario: Changing public notifications
-		Given as an "admin"
-		And parameter "shareapi_allow_public_notification" of app "core" is set to "yes"
-		When sending "GET" to "/cloud/capabilities"
+		Given parameter "shareapi_allow_public_notification" of app "core" is set to "yes"
+		When the capabilities are retrieved
 		Then the HTTP status code should be "200"
 		And fields of capabilities match with
 			| capability | path_to_element | value |
@@ -183,9 +191,8 @@ Feature: capabilities
 			| files | versioning | 1 |
 
 	Scenario: Changing expire date
-		Given as an "admin"
-		And parameter "shareapi_default_expire_date" of app "core" is set to "yes"
-		When sending "GET" to "/cloud/capabilities"
+		Given parameter "shareapi_default_expire_date" of app "core" is set to "yes"
+		When the capabilities are retrieved
 		Then the HTTP status code should be "200"
 		And fields of capabilities match with
 			| capability | path_to_element | value |
@@ -204,10 +211,9 @@ Feature: capabilities
 			| files | versioning | 1 |
 
 	Scenario: Changing expire date enforcing
-		Given as an "admin"
-		And parameter "shareapi_default_expire_date" of app "core" is set to "yes"
+		Given parameter "shareapi_default_expire_date" of app "core" is set to "yes"
 		And parameter "shareapi_enforce_expire_date" of app "core" is set to "yes"
-		When sending "GET" to "/cloud/capabilities"
+		When the capabilities are retrieved
 		Then the HTTP status code should be "200"
 		And fields of capabilities match with
 			| capability | path_to_element | value |
@@ -227,9 +233,8 @@ Feature: capabilities
 			| files | versioning | 1 |
 
 	Scenario: Changing group sharing allowed
-		Given as an "admin"
-		And parameter "shareapi_allow_group_sharing" of app "core" is set to "no"
-		When sending "GET" to "/cloud/capabilities"
+		Given parameter "shareapi_allow_group_sharing" of app "core" is set to "no"
+		When the capabilities are retrieved
 		Then the HTTP status code should be "200"
 		And fields of capabilities match with
 			| capability | path_to_element | value |
