@@ -7,7 +7,7 @@ use GuzzleHttp\Message\ResponseInterface;
 require __DIR__ . '/../../../../lib/composer/autoload.php';
 
 /**
- * Features context.
+ * Sharees context.
  */
 class ShareesContext implements Context, SnippetAcceptingContext {
 	use Provisioning;
