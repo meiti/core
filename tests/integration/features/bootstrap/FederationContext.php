@@ -52,6 +52,7 @@ class FederationContext implements Context, SnippetAcceptingContext {
 	}
 
 	protected function resetAppConfigs() {
-		// TODO what does this need to enable?
+		$this->modifyServerConfig('files_sharing', 'outgoing_server2server_share_enabled', 'yes');
+		$this->modifyServerConfig('files_sharing', 'incoming_server2server_share_enabled', 'yes');
 	}
 }
