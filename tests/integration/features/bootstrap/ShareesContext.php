@@ -11,7 +11,7 @@ require_once 'bootstrap.php';
  * Sharees context.
  */
 class ShareesContext implements Context, SnippetAcceptingContext {
-	use Provisioning;
+	use BasicStructure;
 	use AppConfiguration;
 
 	/**
