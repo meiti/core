@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 
 trait Checksums {
 
-	use Webdav;
+	use WebDav;
 
 	/**
 	 * @When user :user uploads file :source to :destination with checksum :checksum
