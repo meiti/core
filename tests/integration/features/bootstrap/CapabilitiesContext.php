@@ -37,16 +37,16 @@ class CapabilitiesContext implements Context, SnippetAcceptingContext {
 	}
 
 	protected function resetAppConfigs() {
-		$this->modifyServerConfig('core', 'shareapi_enabled', 'yes');
-		$this->modifyServerConfig('core', 'shareapi_allow_links', 'yes');
-		$this->modifyServerConfig('core', 'shareapi_allow_public_upload', 'yes');
-		$this->modifyServerConfig('core', 'shareapi_allow_resharing', 'yes');
-		$this->modifyServerConfig('files_sharing', 'outgoing_server2server_share_enabled', 'yes');
-		$this->modifyServerConfig('files_sharing', 'incoming_server2server_share_enabled', 'yes');
-		$this->modifyServerConfig('core', 'shareapi_enforce_links_password', 'no');
-		$this->modifyServerConfig('core', 'shareapi_allow_public_notification', 'no');
-		$this->modifyServerConfig('core', 'shareapi_default_expire_date', 'no');
-		$this->modifyServerConfig('core', 'shareapi_enforce_expire_date', 'no');
-		$this->modifyServerConfig('core', 'shareapi_allow_group_sharing', 'yes');
+//		$this->modifyServerConfig('core', 'shareapi_enabled', 'yes');
+//		$this->modifyServerConfig('core', 'shareapi_allow_links', 'yes');
+//		$this->modifyServerConfig('core', 'shareapi_allow_public_upload', 'yes');
+//		$this->modifyServerConfig('core', 'shareapi_allow_resharing', 'yes');
+//		$this->modifyServerConfig('files_sharing', 'outgoing_server2server_share_enabled', 'yes');
+//		$this->modifyServerConfig('files_sharing', 'incoming_server2server_share_enabled', 'yes');
+//		$this->modifyServerConfig('core', 'shareapi_enforce_links_password', 'no');
+//		$this->modifyServerConfig('core', 'shareapi_allow_public_notification', 'no');
+//		$this->modifyServerConfig('core', 'shareapi_default_expire_date', 'no');
+//		$this->modifyServerConfig('core', 'shareapi_enforce_expire_date', 'no');
+//		$this->modifyServerConfig('core', 'shareapi_allow_group_sharing', 'yes');
 	}
 }
