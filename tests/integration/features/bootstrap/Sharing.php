@@ -9,8 +9,6 @@ require __DIR__ . '/../../../../lib/composer/autoload.php';
 
 
 trait Sharing {
-	use Provisioning;
-	use AppConfiguration;
 
 	/** @var int */
 	private $sharingApiVersion = 1;

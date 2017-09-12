@@ -11,7 +11,6 @@ require __DIR__ . '/../../../../lib/composer/autoload.php';
 class CapabilitiesContext implements Context, SnippetAcceptingContext {
 
 	use BasicStructure;
-	use AppConfiguration;
 
 	/**
 	 * @Then /^fields of capabilities match with$/
