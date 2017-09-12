@@ -14,6 +14,6 @@ class FeatureContext implements Context, SnippetAcceptingContext {
 	use BasicStructure;
 
 	protected function resetAppConfigs() {
-//		$this->modifyServerConfig('core', 'shareapi_allow_public_upload', 'yes');
+		// TODO: know what needs to be enabled here
 	}
 }
