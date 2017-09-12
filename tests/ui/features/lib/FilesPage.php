@@ -51,7 +51,8 @@ class FilesPage extends OwnCloudPage {
 	protected $fileNameMatchXpath = "//span[@class='nametext' and .=%s]";
 	protected $fileRowFromNameXpath = "/../../..";
 	protected $appContentId = "app-content";
-	//TODO make simpler, only ID .//*[@id='fileList']
+	//we need @id='app-content-files' because id='fileList' is used multiple times
+	//see https://github.com/owncloud/core/issues/27870
 	protected $fileListXpath = ".//div[@id='app-content-files']//tbody[@id='fileList']";
 	protected $loadingIndicatorXpath = ".//*[@class='loading']";
 	protected $deleteAllSelectedBtnXpath = ".//*[@id='app-content-files']//*[@class='delete-selected']";
