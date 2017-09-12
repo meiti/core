@@ -656,7 +656,7 @@ trait Sharing {
 	}
 
 	protected function resetAppConfigs() {
-		$this->modifyServerConfig('core', 'shareapi_allow_public_upload', 'yes');
+//		$this->modifyServerConfig('core', 'shareapi_allow_public_upload', 'yes');
 	}
 }
 
