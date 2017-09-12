@@ -6,6 +6,7 @@ default:
       paths:
         - %paths.base%/../sharees_features
       contexts:
+        - FeatureContext:
         - ShareesContext:
             baseUrl:  http://localhost:8080/ocs/
             admin:
