@@ -65,9 +65,12 @@ class ShareesContext implements Context, SnippetAcceptingContext {
 	}
 
 	protected function resetAppConfigs() {
+		// $this->modifyServerConfig('core', 'shareapi_enabled', 'yes');
 		$this->modifyServerConfig('core', 'shareapi_only_share_with_group_members', 'no');
 		$this->modifyServerConfig('core', 'shareapi_allow_share_dialog_user_enumeration', 'yes');
 		$this->modifyServerConfig('core', 'shareapi_share_dialog_user_enumeration_group_members', 'no');
 		$this->modifyServerConfig('core', 'shareapi_allow_group_sharing', 'yes');
+		// $this->modifyServerConfig('files_sharing', 'outgoing_server2server_share_enabled', 'yes');
+		// $this->modifyServerConfig('files_sharing', 'incoming_server2server_share_enabled', 'yes');
 	}
 }
