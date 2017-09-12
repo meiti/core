@@ -6,8 +6,6 @@ use GuzzleHttp\Message\ResponseInterface;
 require __DIR__ . '/../../../../lib/composer/autoload.php';
 
 trait Provisioning {
-	use BasicStructure;
-
 	/** @var array */
 	private $createdUsers = [];
 
