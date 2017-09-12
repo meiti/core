@@ -11,5 +11,9 @@ require_once 'bootstrap.php';
  * Features context.
  */
 class FeatureContext implements Context, SnippetAcceptingContext {
-	use WebDav;
+	use BasicStructure;
+
+	protected function resetAppConfigs() {
+//		$this->modifyServerConfig('core', 'shareapi_allow_public_upload', 'yes');
+	}
 }
