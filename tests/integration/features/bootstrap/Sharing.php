@@ -29,7 +29,7 @@ trait Sharing {
 	 * @param string $user
 	 * @param \Behat\Gherkin\Node\TableNode|null $body
 	 */
-	public function asCreatingAShareWith($user, $body) {
+	public function asUserCreatingAShareWith($user, $body) {
 		$fullUrl = $this->baseUrl . "v{$this->apiVersion}.php/apps/files_sharing/api/v{$this->sharingApiVersion}/shares";
 		$client = new Client();
 		$options = [];
