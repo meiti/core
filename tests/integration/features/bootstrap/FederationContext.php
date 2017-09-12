@@ -10,7 +10,7 @@ require __DIR__ . '/../../../../lib/composer/autoload.php';
  */
 class FederationContext implements Context, SnippetAcceptingContext {
 
-	use WebDav;
+	use BasicStructure;
 
 	/**
 	 * @Given /^user "([^"]*)" from server "(LOCAL|REMOTE)" shares "([^"]*)" with user "([^"]*)" from server "(LOCAL|REMOTE)"$/

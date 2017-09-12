@@ -13,6 +13,7 @@ trait BasicStructure {
 	use Comments;
 	use MailTool;
 	use Tags;
+	use WebDav;
 
 	/** @var string */
 	private $currentUser = '';
