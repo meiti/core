@@ -50,4 +50,8 @@ class FederationContext implements Context, SnippetAcceptingContext {
 		$this->theOCSStatusCodeShouldBe('100');
 		$this->usingServer($previous);
 	}
+
+	protected function resetAppConfigs() {
+		// TODO what does this need to enable?
+	}
 }
